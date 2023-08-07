@@ -7,21 +7,8 @@ let op = ""
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        if (Number.isInteger(Number(button.id))) {
-            i += button.id;
-        }
-        else if (isNaN(button.id)) {
-            op = button.id;
-            return;
-        }
-        j += button.id;
-        console.log(i)
-        console.log(op)
-        console.log(j)
-
-        //if num is inputted, fill i
-        //keep filling i until ops is called, then fill op
-        //
+        //array method split by " " (space)
+        //array[ , , ]
     })
 })
 
