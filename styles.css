@@ -1,4 +1,48 @@
 * {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+}
+
+
+
+.calculator {
+    border: solid black;
+    background-color: beige;
+    border-radius: 3%;
+    margin: 24px auto;
+    height: 750px;
+    width: 525px;
+}
+
+.display {
+    background-color: aliceblue;
+    border: solid black;
+    border-radius: 5%;
+    margin: 60px auto 0 auto;
+    width: 90%;
+    height: 20%;
+}
+
+.display h1 {
+    margin: 20px;
+}
+
+.buttons {
+    margin: auto;
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.buttons button {
+    background-color: brown;
+    color: azure;
+    border-radius: 10%;
+    font-size: xx-large;
+    width: 100px;
+    height: 100px;
 }
