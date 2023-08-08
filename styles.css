@@ -46,10 +46,6 @@
     gap: 8px;
 }
 
-#add, #sub, #mul, #div, #equ, #clr {
-    background-color: rgb(154, 41, 41);
-}
-
 .buttons button {
     background-color: rgb(188, 63, 63);
     color: azure;

@@ -1,37 +1,52 @@
-let i = "";
-let j = "";
-let op = "";
+let i = [];
+let j = [];
+let op = [];
 let arr = [];
 
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        const symbol = ["+", "-", "/", "*", "=", "c"];
-        //bunch of number for i
-        //until symbol is inserted
-        //then insert symbol
-        //until another num is inserted
-        //then insert bunch of number for j
-        //until another op is pressed
-        //then operate i op j
-        
-        if (symbol.includes(button.id)) {
-            op = button.id;
-            console.log(op);
-            arr[0] = i;
+        if (arr.length < 3) {
+            arr.push(button.id);
             console.log(arr)
         }
-        else if (arr.length === 0) {
-            i += button.id;
-            console.log(i);
+        else {
+            console.log(operator(Number(arr[0]), arr[1], Number(arr[2])));
+            arr = [];
         }
-        else if (arr.length > 0) {
-            arr[1] = op;
-            j += button.id;
-            console.log(arr);
-            console.log(j);
-        }
+        
+        // const symbol = ["+", "-", "/", "*", "c"];
+        // if (!(symbol.includes(button.id))) {
+        //     i += button.id;
+        //     console.log(i);
+        // }
+        // else if (symbol.includes(button.id)) {
+            
+        // }
+        
+        // if (symbol.includes(button.id)) {
+        //     op = button.id;
+        //     console.log(op);
+        //     arr[0] = i;
+        //     console.log(arr)
+        // }
+        // else if (arr.length === 0) {
+        //     i += button.id;
+        //     console.log(i);
+        // }
+        // else if (arr.length > 0) {
+        //     arr[1] = op;
+        //     j += button.id;
+        //     console.log(arr);
+        //     console.log(j);
+        // }
+        // else if (button.id == "=") {
+        //     arr[2] = j;
+        //     console.log(arr)
+        //     let result = operator(arr[0], arr[1], arr[2]);
+        //     console.log(result);
+        // }
 
     })
 })
