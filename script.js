@@ -1,65 +1,65 @@
 let i = [];
 let j = [];
-let op = [];
+let op = "";
 let arr = [];
 let result = 0;
-let Allsymbols = ["c", "=", "+", "-", "*", "/"];
+let Allsymbols = ["=", "+", "-", "*", "/"];
 
 const buttons = document.querySelectorAll("button");
 let displayEqu = document.querySelector(".equation");
 let displayRes = document.querySelector(".result");
 
+displayRes.textContent = `${result}`;
+
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        if (arr.length == 0 && Allsymbols.includes(button.id)) {
-            console.log(`NaN --> ${button.id}`);
+        if (button.id === "c") {
+            i = [];
+            j = [];
+            op = "";
+            arr = [];
+            result = 0;
+        }
+        else if (arr.length == 0 && Allsymbols.includes(button.id)) {
+            //if operator is pressed first, nothing happens
             return;
         }
         else if (arr.length == 0 && !(Allsymbols.includes(button.id))) {
+            //once number is pressed, i is added and added to arr0
             i += button.id;
-            console.log(i);
             arr[0] = i;
-            console.log(arr);
         }
         else if (arr.length == 1 && !(Allsymbols.includes(button.id))) {
+            //if number is pressed, i is added and added again
             i += button.id;
-            console.log(i);
             arr[0] = i;
-            console.log(arr);
         }
         else if (arr.length == 1 && Allsymbols.includes(button.id)) {
+            //if ops is pressed, op is added and added to arr1
             op = button.id;
             arr[1] = op;
-            console.log(arr);
-        }
+        } 
         else if (arr.length == 2 && Allsymbols.includes(button.id)) {
+            //if op pressed, op is added and added again
             op = button.id;
             arr[1] = op;
             console.log(arr);
         }
         else if (arr.length >= 2 && !(Allsymbols.includes(button.id))) {
+            //if number is pressed, j is added and added to arr2
             j += button.id;
             arr[2] = j;
             console.log(arr)
         }
-        else if (arr.length > 2 && button.id == "=") {
+        else if (arr.length > 2 && Allsymbols.includes(button.id)) {
             result += operator(Number(arr[0]), arr[1], Number(arr[2]));
             arr = [];
             i = [];
-            op = [];
+            op = "";
             j = [];
         }
-//        if (arr.length < 3 && )
-        // if (arr.length < 3) {
-        //     arr.push(button.id);
-        // }
-        // else {
-        //     result = operator(Number(arr[0]), arr[1], Number(arr[2]));
-        //     arr = [];
-        // }
         displayEqu.textContent = `${arr}`;
         displayRes.textContent = `${result}`;
-
     })
 });
 
