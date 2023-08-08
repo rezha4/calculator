@@ -4,6 +4,7 @@ let op = "";
 let arr = [];
 let result = 0;
 let Allsymbols = ["=", "+", "-", "*", "/"];
+let symbols = ["+", "-", "*", "/"];
 
 const buttons = document.querySelectorAll("button");
 let displayEqu = document.querySelector(".equation");
@@ -49,7 +50,7 @@ buttons.forEach((button) => {
             j += button.id;
             arr[2] = j;
         }
-        else if (arr.length > 2 && Allsymbols.includes(button.id)) {
+        else if (arr.length > 2 && symbols.includes(button.id)) {
             result += operator(Number(arr[0]), arr[1], Number(arr[2]));
             arr[0] = result;
             arr.pop();
@@ -58,7 +59,14 @@ buttons.forEach((button) => {
             op = "";
             j = [];
         }
-        displayEqu.textContent = `${arr}`;
+        else if (arr.length > 2 && button.id === "=") {
+            result += operator(Number(arr[0]), arr[1], Number(arr[2]));
+            arr = [];
+            i = [];
+            op = "";
+            j = [];
+        }
+        displayEqu.textContent = `${arr.toString().replaceAll(",", " ")}`;
         displayRes.textContent = `${result}`;
     })
 });
@@ -79,6 +87,9 @@ function operator(i, op, j) {
     }
     else if (op === "/") {
         return divide(i, j);
+    }
+    else if(op === "/" && j === 0) {
+        return "Pls don't break my cal by dividing w 0";
     }
 }
 
