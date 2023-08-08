@@ -1,16 +1,42 @@
-let i = "";
-let j = "";
-let op = "";
+let i = [];
+let j = [];
+let op = [];
 let arr = [];
+let result = 0;
+let Allsymbols = ["c", "=", "+", "-", "*", "/"];
 
 const buttons = document.querySelectorAll("button");
-let equation = document.querySelector(".equation");
+let displayEqu = document.querySelector(".equation");
+let displayRes = document.querySelector(".result");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        displayEquation(button.id);
-        arr.push(button.id);
-        console.log(arr);
+        const symbol = ["+", "-", "/", "*", "=", "c"];
+        //bunch of number for i
+        //until symbol is inserted
+        //then insert symbol
+        //until another num is inserted
+        //then insert bunch of number for j
+        //until another op is pressed
+        //then operate i op j
+        
+        if (symbol.includes(button.id)) {
+            op = button.id;
+            console.log(op);
+            arr[0] = i;
+            console.log(arr)
+        }
+        else if (arr.length === 0) {
+            i += button.id;
+            console.log(i);
+        }
+        else if (arr.length > 0) {
+            arr[1] = op;
+            j += button.id;
+            console.log(arr);
+            console.log(j);
+        }
+
     })
 });
 
