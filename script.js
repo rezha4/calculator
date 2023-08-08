@@ -20,16 +20,16 @@ buttons.forEach((button) => {
             arr = [];
             result = 0;
         }
-        else if (arr.length == 0 && Allsymbols.includes(button.id)) {
+        else if (arr.length == 0 && result == 0 && Allsymbols.includes(button.id)) {
             //if operator is pressed first, nothing happens
             return;
         }
-        else if (arr.length == 0 && !(Allsymbols.includes(button.id))) {
+        else if (arr.length == 0 && result == 0 && !(Allsymbols.includes(button.id))) {
             //once number is pressed, i is added and added to arr0
             i += button.id;
             arr[0] = i;
         }
-        else if (arr.length == 1 && !(Allsymbols.includes(button.id))) {
+        else if (arr.length == 1 && result == 0 && !(Allsymbols.includes(button.id))) {
             //if number is pressed, i is added and added again
             i += button.id;
             arr[0] = i;
@@ -43,17 +43,17 @@ buttons.forEach((button) => {
             //if op pressed, op is added and added again
             op = button.id;
             arr[1] = op;
-            console.log(arr);
         }
         else if (arr.length >= 2 && !(Allsymbols.includes(button.id))) {
             //if number is pressed, j is added and added to arr2
             j += button.id;
             arr[2] = j;
-            console.log(arr)
         }
         else if (arr.length > 2 && Allsymbols.includes(button.id)) {
             result += operator(Number(arr[0]), arr[1], Number(arr[2]));
-            arr = [];
+            arr[0] = result;
+            arr.pop();
+            arr.pop();
             i = [];
             op = "";
             j = [];
