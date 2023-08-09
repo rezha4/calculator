@@ -21,16 +21,16 @@ buttons.forEach((button) => {
             arr = [];
             result = 0;
         }
-        else if (arr.length == 0 && result == 0 && Allsymbols.includes(button.id)) {
+        else if (arr.length == 0 && Allsymbols.includes(button.id)) {
             //if operator is pressed first, nothing happens
             return;
         }
-        else if (arr.length == 0 && result == 0 && !(Allsymbols.includes(button.id))) {
+        else if (arr.length == 0 && !(Allsymbols.includes(button.id))) {
             //once number is pressed, i is added and added to arr0
             i += button.id;
             arr[0] = i;
         }
-        else if (arr.length == 1 && result == 0 && !(Allsymbols.includes(button.id))) {
+        else if (result == 0 && arr.length == 1 && !(Allsymbols.includes(button.id))) {
             //if number is pressed, i is added and added again
             i += button.id;
             arr[0] = i;
@@ -51,16 +51,16 @@ buttons.forEach((button) => {
             arr[2] = j;
         }
         else if (arr.length > 2 && symbols.includes(button.id)) {
-            result += operator(Number(arr[0]), arr[1], Number(arr[2]));
+            result = operator(Number(arr[0]), arr[1], Number(arr[2]));
             arr[0] = result;
             arr.pop();
-            arr.pop();
+            op = button.id;
+            arr[1] = op;
             i = [];
-            op = "";
             j = [];
         }
         else if (arr.length > 2 && button.id === "=") {
-            result += operator(Number(arr[0]), arr[1], Number(arr[2]));
+            result = operator(Number(arr[0]), arr[1], Number(arr[2]));
             arr = [];
             i = [];
             op = "";
